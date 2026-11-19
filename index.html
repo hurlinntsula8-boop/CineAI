@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101426">
+<title>Cine AI - Imagine. Create. Inspire.</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#101426;color:white}
+header{padding:22px 18px;background:#171d34;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:bold;color:#9c8cff}
+.logo span{color:white}
+header button,.action{background:#7461ef;color:white;border:0;padding:11px 15px;border-radius:9px}
+main{padding:22px 16px;max-width:850px;margin:auto}
+.hero{padding:30px 20px;border-radius:18px;background:linear-gradient(135deg,#29245c,#182d50);margin-bottom:25px}
+.hero h1{font-size:32px;margin:0 0 12px}
+.hero p{color:#d8d9ee;line-height:1.6}
+h2{font-size:21px}
+.modules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.module{background:#1b223a;padding:17px 13px;border:1px solid #343d5d;border-radius:13px;min-height:125px}
+.module .emoji{font-size:27px}
+.module h3{font-size:16px;margin:10px 0 6px}
+.module p{font-size:12px;color:#b9c0d8;line-height:1.5}
+.panel{background:#1b223a;padding:17px;border-radius:13px;margin-top:22px}
+input,textarea,select{width:100%;padding:13px;margin:8px 0;background:#101426;color:white;border:1px solid #465071;border-radius:8px;font-size:15px}
+textarea{min-height:100px;resize:vertical}
+button{cursor:pointer;font-size:14px}
+#message{color:#b9c0d8;line-height:1.6;white-space:pre-wrap}
+footer{text-align:center;color:#9da6c1;padding:30px 12px;font-size:12px}
+@media(min-width:650px){.modules{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">CINE <span>AI</span></div>
+<button onclick="document.getElementById('modules').scrollIntoView()">Explorer</button>
+</header>
+
+<main>
+<section class="hero">
+<p>BIENVENUE DANS TON UNIVERS CRÉATIF</p>
+<h1>Imagine. Create. Inspire.</h1>
+<p>Découvre une nouvelle façon de créer avec l'intelligence artificielle. Écris, imagine, apprends et donne vie à tes idées.</p>
+<button class="action" onclick="document.getElementById('modules').scrollIntoView()">Découvrir Cine AI</button>
+</section>
+
+<h2 id="modules">Nos espaces de création</h2>
+<section class="modules">
+<div class="module"><div class="emoji">🤖</div><h3>AI Assistant</h3><p>Discute avec ton assistant intelligent.</p></div>
+<div class="module"><div class="emoji">🎬</div><h3>Film Studio</h3><p>Imagine des scénarios, des vidéos et des films.</p></div>
+<div class="module"><div class="emoji">🎨</div><h3>Image Studio</h3><p>Donne vie à tes idées visuelles.</p></div>
+<div class="module"><div class="emoji">🎙️</div><h3>Voice Studio</h3><p>Explore la voix, la narration et le doublage.</p></div>
+<div class="module"><div class="emoji">📚</div><h3>Learn</h3><p>Apprends et développe tes connaissances.</p></div>
+<div class="module"><div class="emoji">💼</div><h3>Business</h3><p>Prépare tes projets et tes entreprises.</p></div>
+<div class="module"><div class="emoji">🌍</div><h3>Translate</h3><p>Explore la traduction multilingue.</p></div>
+</section>
+
+<section class="panel">
+<h2>🎬 Créer un projet de film</h2>
+<p>Décris ton idée pour préparer ton projet.</p>
+<input id="title" placeholder="Titre de ton film">
+<select id="format">
+<option>Vidéo courte</option>
+<option>Film complet</option>
+</select>
+<textarea id="idea" placeholder="Décris ton histoire, tes personnages et tes scènes..."></textarea>
+<button class="action" onclick="createProject()">Préparer mon projet</button>
+<p id="projectResult"></p>
+</section>
+
+<section class="panel">
+<h2>🤖 AI Assistant</h2>
+<p>Écris une question pour tester l'interface.</p>
+<input id="question" placeholder="Écris ton message...">
+<button class="action" onclick="demoChat()">Envoyer</button>
+<p id="message"></p>
+</section>
+</main>
+
+<footer>
+CINE AI © 2026 · Imagine. Create. Inspire.<br>
+Une plateforme en construction.
+</footer>
+
+<script>
+function createProject(){
+const title=document.getElementById('title').value.trim();
+const idea=document.getElementById('idea').value.trim();
+const format=document.getElementById('format').value;
+if(!title||!idea){
+document.getElementById('projectResult').textContent="Ajoute un titre et une description.";
+return;
+}
+document.getElementById('projectResult').textContent=
+"Projet préparé : "+title+" ("+format+"). Ton idée est prête à être développée.";
+}
+function demoChat(){
+const q=document.getElementById('question').value.trim();
+document.getElementById('message').textContent=q?
+"Merci pour ton message ! L'interface Cine AI fonctionne. Le véritable assistant IA sera connecté dans une prochaine étape.":
+"Écris d'abord une question.";
+}
+</script>
+</body>
+</html>
